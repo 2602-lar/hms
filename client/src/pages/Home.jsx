@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavTab } from '../reusables/components'
 import { Outlet } from 'react-router-dom'
+import AuthContext from '../Context/AuthContext'
 
 export const Home = () => {
+
+    let { logoutUser } = useContext(AuthContext)
+
     return (
         <div className='fixed w-screen h-screen flex'>
             <div className='w-[20%] h-full bg-blue-500 '>
@@ -13,7 +17,7 @@ export const Home = () => {
                 <NavTab
                     label={'Patients'}
                 />
-                 <NavTab
+                <NavTab
                     label={'Appointments'}
                 />
                 <NavTab
@@ -31,9 +35,9 @@ export const Home = () => {
                 <NavTab
                     label={'Invoicing'}
                 />
-                <NavTab
-                    label={'Logout'}
-                />
+                <div className='flex flex-col text-center self-center hover:cursor-pointer hover:border-t-4 border-t-2 border-gray-200 w-full' onClick={() => logoutUser()}>
+                    <span className="w-full h-10  text-lg text-white font-semibold" >Logout</span>
+                </div>
 
             </div>
 
@@ -46,7 +50,7 @@ export const Home = () => {
                 <div className='h-[91%] w-full'>
                     <img src='reception2.jpg' alt='' className='w-full h-full' />
                     <div className='z-10 fixed h-[91%] w-[80%] bottom-0 right-0 backdrop-blur-sm '>
-                        <Outlet/>
+                        <Outlet />
                     </div>
                 </div>
             </div>

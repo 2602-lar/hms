@@ -23,7 +23,7 @@ export const TxtInput = ({ label, type, value, setvalue, id, placeholder }) => {
 export const NavTab = ({ label,  id, url }) => {
     return (
         <div className='flex flex-col self-center hover:border-t-4 border-t-2 border-gray-200 w-full'>
-          <NavLink className="w-full h-10  text-lg text-white font-semibold" to={url}>{label}</NavLink>
+          <NavLink className="w-full h-10 text-center  text-lg text-white font-semibold" to={url}>{label}</NavLink>
         </div>
     )
 }
